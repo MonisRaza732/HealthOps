@@ -1,0 +1,529 @@
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 255px;
+  position: fixed;
+  min-height: 100vh;
+  background-color: #3a4258;
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo i {
+  opacity: 0.8;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e2e8f0;
+  transform: scale(1.05);
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 255px;
+  position: relative;
+}
+
+.header {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.welcome i {
+  color: #3a4258;
+}
+
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+.card {
+  background-color: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.book-btn {
+  background-color: #4285F4;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-btn:hover {
+  background-color: #3367d6;
+}
+
+.appointment-info {
+  margin-top: 16px;
+}
+
+.no-records {
+  margin-top: 8px;
+  color: #6c757d;
+}
+
+.appointment-form {
+  margin-top: 24px;
+  display: block;
+}
+
+.appointment-form h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-top: 16px;
+}
+
+.form-group label {
+  display: block;
+  color: #495057;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.5);
+}
+
+.form-submit {
+  margin-top: 24px;
+}
+
+.form-submit button {
+  background-color: #4285F4;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-submit button:hover {
+  background-color: #3367d6;
+}
+
+.doctor-options {
+  display: none;
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+}
+
+.doctor-option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.doctor-option:hover {
+  background-color: #e9ecef;
+}
+
+.doctor-option input {
+  margin-right: 10px;
+}
+
+.doctor-info {
+  flex: 1;
+}
+
+.doctor-name {
+  font-weight: 600;
+  color: #212529;
+}
+
+.doctor-specialty {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* Billing Table Styles */
+.billing-table {
+  margin-top: 16px;
+}
+
+.billing-table table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #dee2e6;
+}
+
+.billing-table th,
+.billing-table td {
+  border: 1px solid #dee2e6;
+  padding: 8px;
+  text-align: left;
+}
+
+.billing-table th {
+  background-color: #f8f9fa;
+}
+
+.billing-table .paid {
+  color: #28a745;
+}
+
+.billing-table .pending {
+  color: #dc3545;
+}
+
+.action-cell {
+  text-align: center;
+}
+
+.viewBillBtn {
+  background-color: #4285F4;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.viewBillBtn:hover {
+  background-color: #3367d6;
+}
+
+.bill-details {
+  margin-top: 24px;
+  display: none;
+}
+
+.bill-details h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.bill-description {
+  margin-top: 8px;
+  color: #6c757d;
+}
+
+.bill-items {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.bill-items h4 {
+  font-weight: 600;
+  color: #495057;
+  margin-top: 12px;
+}
+
+.bill-items ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #6c757d;
+}
+
+.bill-items #billTotal {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #4285F4;
+}
+
+/* Upload Section Styles */
+.upload-container {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}
+
+.upload-container input[type="file"] {
+  flex: 1;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.upload-btn {
+  background-color: #4285F4;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.upload-btn:hover {
+  background-color: #3367d6;
+}
+
+/* Appointments Table */
+.appointments-table {
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.appointments-table h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.appointments-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.appointments-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.appointments-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Status indicators */
+.status {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  color: #fd7e14;
+}
+
+.status.confirmed {
+  color: #28a745;
+}
+
+.status.completed {
+  color: #4285F4;
+}
+
+.status.cancelled {
+  color: #dc3545;
+}
+
+.status.checked-in {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+/* Action buttons */
+.cancel-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+}
+
+.select-btn {
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.select-btn:hover {
+  background-color: #3367d6;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.time-slots-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.time-slot {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.time-slot input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.save-slots-btn {
+  background-color: #4285F4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.save-slots-btn:hover {
+  background-color: #3367d6;
+}
+
+.slot-chip {
+  background-color: #e9ecef;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-right: 8px;
+}

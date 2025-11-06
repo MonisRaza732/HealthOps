@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./patient.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <h2 class="logo">
+          <i class="fas fa-hospital"></i>
+          <span>MedElite</span>
+        </h2>
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <a href="#appointments">
+                <i class="fas fa-calendar-alt"></i><span>Appointments</span>
+              </a>
+            </li>
+            <li>
+              <a href="#history">
+                <i class="fas fa-file-medical"></i><span>Medical History</span>
+              </a>
+            </li>
+            <li>
+              <a href="#billing">
+                <i class="fas fa-credit-card"></i><span>Billing</span>
+              </a>
+            </li>
+            <li>
+              <a href="#upload">
+                <!-- <i class="fas fa-upload"></i><span>Upload Reports</span> -->
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header class="header">
+          <div class="welcome">
+            <i class="fas fa-user-md"></i>
+            <span id="welcomeMessage">Welcome</span>
+          </div>
+          <button class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </header>
+
+        <section id="appointments" class="card">
+          <h2>
+            <i class="far fa-calendar-alt"></i>
+            <span>View & Book Appointments</span>
+          </h2>
+
+          <!-- Upcoming Appointments Table -->
+          <div class="appointments-table">
+            <h3>Your Appointments</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Doctor</th>
+                  <th>Specialty</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="appointmentsTableBody">
+                <!-- Appointments will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Appointment Form -->
+          <div id="appointmentForm" class="appointment-form">
+            <h3>Book an Appointment</h3>
+
+            <!-- Medical Specialty Selection -->
+            <div class="form-group">
+              <label for="medicalField">Medical Field:</label>
+              <select id="medicalField" required>
+                <option value="">Select a medical field</option>
+                <!-- Options will be populated by JavaScript -->
+              </select>
+            </div>
+
+            <!-- Doctor Selection -->
+            <div
+              id="doctorSelection"
+              class="doctor-options"
+              style="display: none"
+            >
+              <h4>Available Doctors:</h4>
+              <div id="doctorOptionsContainer">
+                <!-- Doctor options will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Date Selection -->
+            <div class="form-group" id="dateGroup" style="display: none">
+              <label for="appointmentDate">Select Date:</label>
+              <select id="appointmentDate" required>
+                <option value="">Select a date</option>
+                <!-- Dates will be populated by JavaScript -->
+              </select>
+            </div>
+
+            <!-- Time Slot Selection -->
+            <div class="form-group" id="timeSlotGroup" style="display: none">
+              <label for="appointmentTime">Select Time Slot:</label>
+              <select id="appointmentTime" required>
+                <option value="">Select a time slot</option>
+                <!-- Time slots will be populated by JavaScript -->
+              </select>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input
+                type="number"
+                id="age"
+                placeholder="Enter your age"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+              <label>Gender:</label>
+              <div class="radio-group">
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  required
+                />
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">Female</label>
+
+                <input type="radio" id="other" name="gender" value="other" />
+                <label for="other">Other</label>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone">Phone:</label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+                pattern="[0-9]{10}"
+                title="Please enter a 10-digit phone number"
+              />
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <textarea
+                id="address"
+                placeholder="Enter your full address"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Additional Details -->
+            <div class="form-group">
+              <label for="reason">Reason for Appointment:</label>
+              <textarea
+                id="reason"
+                placeholder="Describe the purpose of your visit"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-submit">
+              <button id="submitAppointment">Submit</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="history" class="card">
+          <h2>
+            <i class="fas fa-notes-medical"></i>
+            <span>Medical History & Prescriptions</span>
+          </h2>
+          <p class="no-records">No records found.</p>
+        </section>
+
+        <section id="billing" class="card">
+          <h2>
+            <i class="fas fa-credit-card"></i> <span>Payment & Billing</span>
+          </h2>
+          <div class="billing-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="billingTableBody">
+                <!-- Billing data will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+          <div id="billDetails" class="bill-details" style="display: none">
+            <!-- Bill details will be populated by JavaScript -->
+          </div>
+        </section>
+<!-- 
+        <section id="upload" class="card">
+          <h2>
+            <i class="fas fa-file-upload"></i> <span>Upload Reports</span>
+          </h2>
+          <div class="upload-container">
+            <input type="file" id="reportFile" />
+            <button class="upload-btn">
+              <i class="fas fa-upload"></i> <span>Upload</span>
+            </button>
+          </div> -->
+        </section>
+      </div>
+    </div>
+    <script src="./patient.js"></script>
+  </body>
+</html>

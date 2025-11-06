@@ -1,0 +1,399 @@
+/* Base Styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #edf2f7;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  position: fixed;
+  min-height: 100vh;
+  background: rgba(30, 41, 59, 0.85);
+  color: #f8fafc;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 0 16px 16px 0;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  opacity: 0.7;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 300px;
+  position: relative;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome i {
+  color: #0f172a;
+}
+
+.logout-btn {
+  background-color: #e11d48;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #be123c;
+}
+
+/* Card Styles */
+.card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 24px;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Appointments Table Styles */
+.appointments-table {
+  margin-top: 16px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.appointments-table th {
+  background-color: #f1f5f9;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.appointments-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-confirmed {
+  background-color: #c7d2fe;
+  color: #3730a3;
+}
+
+.status-checked-in {
+  background-color: #bbf7d0;
+  color: #065f46;
+}
+
+.select-patient-btn {
+  background-color: #0ea5e9;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.select-patient-btn:hover {
+  background-color: #0284c7;
+}
+
+/* Patient Details */
+.patient-details {
+  display: none;
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #f1f5f9;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+}
+
+.patient-info {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.patient-info-column {
+  flex: 1;
+}
+
+.patient-info h3 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.patient-info p {
+  margin: 8px 0;
+}
+
+/* Prescription Form */
+.prescription-form {
+  margin-top: 24px;
+  display: none;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.medicine-item,
+.test-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.medicine-item input,
+.test-item input {
+  flex: 1;
+}
+
+.add-btn {
+  background-color: #22c55e;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.add-btn:hover {
+  background-color: #16a34a;
+}
+
+.submit-btn {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #2563eb;
+}
+
+.remove-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #dc2626;
+}
+
+/* No Appointments Message */
+.no-appointments {
+  margin-top: 16px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* Slot Form */
+.simple-slot-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.time-slot {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-slot:hover {
+  background: #e2e8f0;
+}
+
+.time-slot input {
+  margin-right: 8px;
+}
+
+#saveSlotsBtn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Slot Management Section */
+.available-slots-container {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
+}
+
+.available-slots-container h3 {
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.slot-date-group {
+  margin-bottom: 20px;
+}
+
+.slot-date-group h4 {
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.slot-times {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.time-slot-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.no-slots {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    border-radius: 0;
+  }
+
+  .time-slots {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}

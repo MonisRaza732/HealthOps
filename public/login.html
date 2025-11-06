@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MedElite - Login/Signup</title>
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .form-control {
+        padding: 8px 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <i class="fas fa-hospital-alt"></i>
+        <span>MedElite</span>
+      </a>
+    </header>
+
+    <main class="main-content">
+      <div class="auth-container">
+        <div class="auth-info">
+          <h2>Healthcare Portal</h2>
+          <p>Sign in or register to access your account.</p>
+          <div class="illustration">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+        </div>
+
+        <!-- Right Side - Forms -->
+        <div class="auth-forms">
+          <div class="form-tabs">
+            <button id="login-tab" class="tab-button active">Login</button>
+            <button id="signup-tab" class="tab-button">Signup</button>
+          </div>
+
+          <!-- Login Form -->
+          <form id="loginForm" class="form-container active" novalidate>
+            <div class="form-group">
+              <label>Role</label>
+              <select
+                id="login-role"
+                class="form-control"
+                required
+                title="Please select your role"
+              >
+                <option value="">Select Role</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+                <option value="receptionist">Receptionist</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="login-email"
+                class="form-control"
+                placeholder="Enter email"
+                required
+                title="Please enter a valid email address"
+              />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                id="login-password"
+                class="form-control"
+                placeholder="••••••••"
+                required
+                minlength="6"
+                title="Password must be at least 6 characters"
+              />
+            </div>
+            <button type="submit" class="submit-button">Login</button>
+          </form>
+
+          <!-- Signup Form -->
+          <form id="signupForm" class="form-container hidden" novalidate>
+            <div class="form-group">
+              <label>Registering as</label>
+              <select
+                id="signup-role"
+                class="form-control"
+                required
+                title="Please select your role"
+              >
+                <option value="">Select Role</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+                <option value="receptionist">Receptionist</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                id="signup-name"
+                class="form-control"
+                placeholder="John Doe"
+                required
+                pattern="^[a-zA-Z ]+"
+                title="Only letters and spaces allowed"
+              />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="signup-email"
+                class="form-control"
+                placeholder="john@example.com"
+                required
+                title="Please enter a valid email address"
+              />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                id="signup-password"
+                class="form-control"
+                placeholder="••••••••"
+                required
+                minlength="6"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}$"
+                title="Must contain: 1 number, 1 uppercase, 1 lowercase letter, 1 special character, and at least 6 characters"
+              />
+            </div>
+            <div class="form-group hidden" id="doctor-fields">
+              <label>Specialization</label>
+              <select
+                id="signup-specialization"
+                class="form-control"
+                title="Please select your specialization"
+              >
+                <option value="">Select Specialization</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Endocrinology">Endocrinology</option>
+                <option value="Gastroenterology">Gastroenterology</option>
+                <option value="Hematology">Hematology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Oncology">Oncology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Radiology">Radiology</option>
+                <option value="Surgery">Surgery</option>
+                <option value="Urology">Urology</option>
+                <option value="General Practitioner">
+                  General Practitioner
+                </option>
+              </select>
+              <br /><br />
+              <label>License Number</label>
+              <input
+                type="text"
+                id="signup-license"
+                class="form-control"
+                placeholder="123456"
+                pattern="^[A-Za-z0-9\-]+$"
+                title="Please enter a valid license number (letters, numbers, and hyphens only)"
+              />
+            </div>
+            <button type="submit" class="submit-button">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Tab switching
+      document.getElementById("login-tab").addEventListener("click", () => {
+        switchTab("login");
+      });
+
+      document.getElementById("signup-tab").addEventListener("click", () => {
+        switchTab("signup");
+      });
+
+      function switchTab(tabName) {
+        document.querySelectorAll(".form-container").forEach((form) => {
+          form.classList.add("hidden");
+          form.classList.remove("active");
+        });
+        document.getElementById(`${tabName}Form`).classList.remove("hidden");
+        document.getElementById(`${tabName}Form`).classList.add("active");
+
+        document.querySelectorAll(".tab-button").forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        document.getElementById(`${tabName}-tab`).classList.add("active");
+      }
+
+      // Show/hide doctor fields based on role selection
+      document
+        .getElementById("signup-role")
+        .addEventListener("change", function () {
+          const doctorFields = document.getElementById("doctor-fields");
+          const specialization = document.getElementById(
+            "signup-specialization"
+          );
+          const license = document.getElementById("signup-license");
+
+          if (this.value === "doctor") {
+            doctorFields.classList.remove("hidden");
+            specialization.required = true;
+            license.required = true;
+          } else {
+            doctorFields.classList.add("hidden");
+            specialization.required = false;
+            license.required = false;
+          }
+        });
+
+      function validateForm(form) {
+        const inputs = Array.from(form.querySelectorAll("input, select"));
+        for (const input of inputs) {
+          if (!input.checkValidity()) {
+            alert(input.title || "Please fill this field correctly");
+            input.focus();
+            return false;
+          }
+        }
+        return true;
+      }
+
+      
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (!validateForm(e.target)) return;
+
+          try {
+            const response = await fetch("/api/auth/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: document.getElementById("login-email").value,
+                password: document.getElementById("login-password").value,
+                role: document.getElementById("login-role").value,
+              }),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+              localStorage.setItem("token", data.token);
+              window.location.href = `/${data.user.role}`;
+            } else {
+              alert(data.error || "Login failed");
+            }
+          } catch (error) {
+            alert("Network error. Please try again.");
+          }
+        });
+
+
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          if (!validateForm(e.target)) return;
+
+          try {
+            const formData = {
+              name: document.getElementById("signup-name").value,
+              email: document.getElementById("signup-email").value,
+              password: document.getElementById("signup-password").value,
+              role: document.getElementById("signup-role").value,
+              specialization:
+                document.getElementById("signup-role").value === "doctor"
+                  ? document.getElementById("signup-specialization").value
+                  : null,
+              licenseNumber:
+                document.getElementById("signup-role").value === "doctor"
+                  ? document.getElementById("signup-license").value
+                  : null,
+            };
+
+            const response = await fetch("/api/auth/signup", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+              alert("Account created successfully!");
+              switchTab("login");
+              e.target.reset();
+            } else {
+              const data = await response.json();
+              alert(data.error || "Signup failed");
+            }
+          } catch (error) {
+            alert("Network error. Please try again.");
+          }
+        });
+    </script>
+  </body>
+</html>

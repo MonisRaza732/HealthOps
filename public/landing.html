@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthOps - Premium Healthcare Services</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --primary-light: #3b82f6;
+        --secondary: #0f172a;
+        --accent: #10b981;
+        --light: #f8fafc;
+        --white: #ffffff;
+        --gray: #64748b;
+        --gray-light: #e2e8f0;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        --rounded-sm: 0.25rem;
+        --rounded: 0.5rem;
+        --rounded-md: 0.75rem;
+        --rounded-lg: 1rem;
+        --rounded-xl: 1.5rem;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+        background-color: var(--light);
+        color: var(--secondary);
+        scroll-behavior: smooth;
+      }
+      
+      /* Header Styles */
+      header {
+        background: var(--white);
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      
+      header.scrolled {
+        padding: 0.5rem 0;
+        box-shadow: var(--shadow-md);
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .logo {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1.75rem;
+        text-decoration: none;
+        letter-spacing: -0.5px;
+      }
+      
+      .logo i {
+        margin-right: 0.75rem;
+        font-size: 1.75rem;
+        color: var(--accent);
+      }
+      
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+      
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+      
+      nav ul li {
+        margin-left: 1.75rem;
+        position: relative;
+      }
+      
+      nav ul li a {
+        color: var(--secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        padding: 0.5rem 0;
+        position: relative;
+      }
+      
+      nav ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+      
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+      
+      nav ul li a:hover {
+        color: var(--primary);
+      }
+      
+      .btn {
+        padding: 0.75rem 1.75rem;
+        border-radius: var(--rounded);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        display: inline-block;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .btn-primary {
+        background: var(--primary);
+        color: var(--white);
+      }
+      
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      
+      .btn-outline {
+        border: 2px solid var(--primary);
+        color: var(--primary);
+        background: transparent;
+      }
+      
+      .btn-outline:hover {
+        background: var(--primary);
+        color: var(--white);
+        box-shadow: var(--shadow);
+      }
+      
+      .btn-accent {
+        background: var(--accent);
+        color: var(--white);
+      }
+      
+      .btn-accent:hover {
+        background: #0d9e6f;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+      
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.95) 0%, rgba(59, 130, 246, 0.95) 100%), 
+                    url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        color: var(--white);
+        padding: 12rem 1rem 8rem;
+        text-align: center;
+        position: relative;
+      }
+      
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+      
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+      
+      /* Section Styles */
+      .section {
+        padding: 6rem 1rem;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.75rem;
+        color: var(--primary);
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+      }
+      
+      .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--accent);
+        border-radius: 2px;
+      }
+      
+      .section-title p {
+        color: var(--gray);
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+      }
+      
+      /* Services Section */
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+      
+      .service-card {
+        background: var(--white);
+        border-radius: var(--rounded-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+      
+      .service-icon {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: var(--white);
+        font-size: 2.5rem;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .service-content {
+        padding: 2rem;
+      }
+      
+      .service-content h3 {
+        margin-bottom: 1.25rem;
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+      
+      .service-content p {
+        color: var(--gray);
+        margin-bottom: 1.5rem;
+      }
+      
+      .service-link {
+        display: inline-flex;
+        align-items: center;
+        color: var(--primary);
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      
+      .service-link i {
+        margin-left: 0.5rem;
+        transition: transform 0.3s;
+      }
+      
+      .service-link:hover {
+        color: var(--primary-dark);
+      }
+      
+      .service-link:hover i {
+        transform: translateX(5px);
+      }
+      
+      /* Doctors Section */
+      .doctors {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+      
+      .doctor-card {
+        background: var(--white);
+        border-radius: var(--rounded-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      
+      .doctor-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+      }
+      
+      .doctor-img {
+        height: 280px;
+        background: var(--gray-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .doctor-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .doctor-img i {
+        font-size: 5rem;
+        color: var(--gray);
+      }
+      
+      .doctor-info {
+        padding: 1.75rem;
+      }
+      
+      .doctor-info h3 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+      }
+      
+      .doctor-info p {
+        color: var(--gray);
+        margin-bottom: 1.25rem;
+        font-size: 0.95rem;
+      }
+      
+      .doctor-specialty {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+      
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .social-links a {
+        color: var(--primary);
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gray-light);
+      }
+      
+      .social-links a:hover {
+        color: var(--white);
+        background: var(--primary);
+        transform: translateY(-3px);
+      }
+      
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      
+      .about-img {
+        border-radius: var(--rounded-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        height: 100%;
+      }
+      
+      .about-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .about-text h3 {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+      
+      .about-text p {
+        margin-bottom: 1.5rem;
+        color: var(--gray);
+      }
+      
+      .about-features {
+        margin-top: 2rem;
+      }
+      
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+      
+      .feature-icon {
+        background: var(--primary);
+        color: var(--white);
+        width: 50px;
+        height: 50px;
+        border-radius: var(--rounded);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+      
+      .feature-text h4 {
+        font-size: 1.1rem;
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+      }
+      
+      .feature-text p {
+        margin-bottom: 0;
+        font-size: 0.95rem;
+      }
+      
+      /* Testimonials */
+      .testimonials {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        color: var(--white);
+        border-radius: var(--rounded-lg);
+        padding: 4rem 3rem;
+        margin-top: 4rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .testimonials::before {
+        content: '\201C';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 15rem;
+        color: rgba(255, 255, 255, 0.1);
+        font-family: serif;
+        line-height: 1;
+      }
+      
+      .testimonial-quote {
+        font-size: 1.4rem;
+        font-style: italic;
+        margin-bottom: 2rem;
+        line-height: 1.8;
+        position: relative;
+        z-index: 1;
+      }
+      
+      .testimonial-author {
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      
+      .testimonial-position {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+      }
+      
+      /* CTA Section */
+      .cta {
+        background: var(--white);
+        border-radius: var(--rounded-lg);
+        padding: 4rem 2rem;
+        text-align: center;
+        box-shadow: var(--shadow-lg);
+        margin-top: 4rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), 
+                    url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      }
+      
+      .cta h3 {
+        font-size: 2.25rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+      }
+      
+      .cta p {
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+      }
+      
+      /* Footer */
+      footer {
+        background: var(--secondary);
+        color: var(--white);
+        padding: 5rem 1rem 2rem;
+        margin-top: 5rem;
+      }
+      
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 3rem;
+      }
+      
+      .footer-col h4 {
+        margin-bottom: 1.75rem;
+        color: var(--white);
+        font-size: 1.25rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+      }
+      
+      .footer-col h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--accent);
+      }
+      
+      .footer-about p {
+        color: var(--gray-light);
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+      }
+      
+      .footer-links {
+        list-style: none;
+      }
+      
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+      
+      .footer-links a {
+        color: var(--gray-light);
+        text-decoration: none;
+        transition: all 0.3s;
+        display: inline-block;
+        font-size: 0.95rem;
+      }
+      
+      .footer-links a:hover {
+        color: var(--accent);
+        transform: translateX(5px);
+      }
+      
+      .footer-contact li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        color: var(--gray-light);
+        font-size: 0.95rem;
+      }
+      
+      .footer-contact i {
+        margin-right: 0.75rem;
+        color: var(--accent);
+        font-size: 1.1rem;
+        margin-top: 0.2rem;
+      }
+      
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        font-size: 1.1rem;
+        transition: all 0.3s;
+      }
+      
+      .footer-social a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+      
+      .copyright {
+        text-align: center;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+        
+        .about-img {
+          height: 400px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .hero {
+          padding: 10rem 1rem 6rem;
+        }
+        
+        .hero h1 {
+          font-size: 2.75rem;
+        }
+        
+        .hero p {
+          font-size: 1.1rem;
+        }
+        
+        .hero-btns {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        
+        .btn {
+          width: 100%;
+          max-width: 250px;
+        }
+        
+        .section {
+          padding: 4rem 1rem;
+        }
+        
+        .section-title h2 {
+          font-size: 2.25rem;
+        }
+        
+        .services {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .logo {
+          font-size: 1.5rem;
+        }
+        
+        .logo i {
+          font-size: 1.5rem;
+        }
+        
+        .hero h1 {
+          font-size: 2.25rem;
+        }
+        
+        .section-title h2 {
+          font-size: 2rem;
+        }
+        
+        .testimonials {
+          padding: 3rem 1.5rem;
+        }
+        
+        .testimonial-quote {
+          font-size: 1.2rem;
+        }
+        
+        .cta h3 {
+          font-size: 1.75rem;
+        }
+      }
+      
+      /* Animation */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .fade-in {
+        animation: fadeIn 0.8s ease forwards;
+      }
+      
+      .delay-1 { animation-delay: 0.2s; }
+      .delay-2 { animation-delay: 0.4s; }
+      .delay-3 { animation-delay: 0.6s; }
+      .delay-4 { animation-delay: 0.8s; }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <div class="container header-container">
+        <a href="#" class="logo">
+          <i class="fas fa-heartbeat"></i>
+          <span>HealthOps</span>
+        </a>
+        <nav class="nav-links">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#doctors">Doctors</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="/login" class="btn btn-primary">Login</a>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1 class="fade-in">Exceptional Care for Your Health Journey</h1>
+        <p class="fade-in delay-1">
+          Combining cutting-edge technology with compassionate care to deliver personalized healthcare solutions that put you first.
+        </p>
+        <div class="hero-btns fade-in delay-2">
+          <a href="#appointment" class="btn btn-accent">Book Appointment</a>
+          <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Specialized Services</h2>
+          <p>Comprehensive healthcare solutions designed around your unique needs</p>
+        </div>
+        
+        <div class="services">
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="service-content">
+              <h3>Cardiology Care</h3>
+              <p>Advanced cardiac diagnostics and treatment from our team of board-certified cardiologists using the latest technology.</p>
+              <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <div class="service-card fade-in delay-1">
+            <div class="service-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="service-content">
+              <h3>Neurology Services</h3>
+              <p>Specialized care for neurological conditions with state-of-the-art diagnostics and personalized treatment plans.</p>
+              <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <div class="service-card fade-in delay-2">
+            <div class="service-icon">
+              <i class="fas fa-x-ray"></i>
+            </div>
+            <div class="service-content">
+              <h3>Advanced Imaging</h3>
+              <p>Comprehensive radiology services including MRI, CT scans, and ultrasound with rapid results and expert analysis.</p>
+              <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="doctors" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Meet Our Specialists</h2>
+          <p>Our team of board-certified physicians are leaders in their fields</p>
+        </div>
+        
+        <div class="doctors">
+          <div class="doctor-card fade-in">
+            <div class="doctor-img">
+              <img src= "https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"alt ="Dr. Sarah Johnson">
+            </div>
+            <div class="doctor-info">
+              <span class="doctor-specialty">Cardiology</span>
+              <h3>Dr. Sarah Johnson</h3>
+              <p>With over 15 years of experience in interventional cardiology, Dr.Saira Fatima is dedicated to heart health.</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="doctor-card fade-in delay-1">
+            <div class="doctor-img">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Michael Chen">
+            </div>
+            <div class="doctor-info">
+              <span class="doctor-specialty">Neurology</span>
+              <h3>Dr. Monis Raza</h3>
+              <p>Specializing in neurodegenerative disorders with a focus on innovative treatment approaches.</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="doctor-card fade-in delay-2">
+            <div class="doctor-img">
+              <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. Emily Rodriguez">
+            </div>
+            <div class="doctor-info">
+              <span class="doctor-specialty">Radiology</span>
+              <h3>Dr. Emily Rodriguez</h3>
+              <p>Expert in diagnostic imaging with subspecialty training in neuroradiology and musculoskeletal imaging.</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="doctor-card fade-in delay-3">
+            <div class="doctor-img">
+              <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Dr. James Wilson">
+            </div>
+            <div class="doctor-info">
+              <span class="doctor-specialty">Internal Medicine</span>
+              <h3>Dr. James Wilson</h3>
+              <p>Primary care physician focused on preventive medicine and comprehensive patient care.</p>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>About HealthOps</h2>
+          <p>Your trusted partner in health and wellness</p>
+        </div>
+        
+        <div class="about-content">
+          <div class="about-img fade-in">
+            <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="HealthOps Hospital">
+          </div>
+          <div class="about-text fade-in delay-1">
+            <h3>Compassionate Care, Exceptional Results</h3>
+            <p>Founded in 2010, HealthOps has grown to become a leading healthcare provider in the region, recognized for our commitment to excellence and patient-centered approach.</p>
+            <p>Our state-of-the-art facility is equipped with the latest medical technology, allowing our team of specialists to deliver accurate diagnoses and effective treatments.</p>
+            
+            <div class="about-features">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-user-md"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Expert Physicians</h4>
+                  <p>Board-certified specialists with extensive experience in their respective fields.</p>
+                </div>
+              </div>
+              
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-hospital"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Advanced Technology</h4>
+                  <p>Cutting-edge medical equipment for precise diagnostics and treatment.</p>
+                </div>
+              </div>
+              
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="feature-text">
+                  <h4>Patient-Centered</h4>
+                  <p>Personalized care plans tailored to each patient's unique needs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonials fade-in">
+          <p class="testimonial-quote">
+            "The care I received at HealthOps was exceptional. From the moment I walked in, I felt valued as a patient. The doctors took time to explain everything and the staff was incredibly supportive throughout my treatment."
+          </p>
+          <p class="testimonial-author">Robert M.</p>
+          <span class="testimonial-position">Patient since 2018</span>
+        </div>
+        
+        <div class="cta fade-in delay-1">
+          <h3>Ready to Prioritize Your Health?</h3>
+          <p>Schedule an appointment with one of our specialists today and experience healthcare that puts you first. Our team is standing by to help you on your journey to better health.</p>
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4>HealthOps</h4>
+            <div class="footer-about">
+              <p>Providing premium healthcare services with compassion and excellence since 2010.</p>
+              <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#doctors">Doctors</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul class="footer-links">
+              <li><a href="#">Cardiology</a></li>
+              <li><a href="#">Neurology</a></li>
+              <li><a href="#">Radiology</a></li>
+              <li><a href="#">Primary Care</a></li>
+              <li><a href="#">Preventive Care</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="footer-contact">
+              <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive, Health City, HC 12345</li>
+              <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+              <li><i class="fas fa-envelope"></i> info@medelite.com</li>
+              <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="copyright">
+          <p>© 2025 HealthOps Healthcare. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Intersection Observer for animations
+      const fadeElements = document.querySelectorAll('.fade-in');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      fadeElements.forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s, transform 0.6s';
+        observer.observe(element);
+      });
+
+      // Mobile menu toggle (for responsive design)
+      const navLinks = document.querySelector('.nav-links');
+      const headerContainer = document.querySelector('.header-container');
+      let menuOpen = false;
+
+      // Create mobile menu toggle button
+      const menuToggle = document.createElement('div');
+      menuToggle.className = 'menu-toggle';
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      headerContainer.appendChild(menuToggle);
+
+      // Add styles for mobile menu
+      const mobileStyles = `
+        <style>
+          .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-left: 1rem;
+          }
+          
+          @media (max-width: 768px) {
+            .menu-toggle {
+              display: block;
+            }
+            
+            .nav-links {
+              display: none;
+              width: 100%;
+              position: absolute;
+              top: 100%;
+              left: 0;
+              background: var(--white);
+              padding: 1rem;
+              box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+              display: block;
+            }
+            
+            nav ul {
+              flex-direction: column;
+              align-items: center;
+            }
+            
+            nav ul li {
+              margin: 0.75rem 0;
+            }
+            
+            .header-container {
+              flex-wrap: wrap;
+            }
+            
+            .btn-primary {
+              margin-left: auto;
+              margin-right: 1rem;
+            }
+          }
+        </style>
+      `;
+      document.head.insertAdjacentHTML('beforeend', mobileStyles);
+
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        navLinks.classList.toggle('active');
+        menuToggle.innerHTML = menuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (menuOpen) {
+            navLinks.classList.remove('active');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuOpen = false;
+          }
+        });
+      });
+
+      // Form submission handling (for contact/appointment forms)
+      const contactForm = document.createElement('form');
+      contactForm.className = 'contact-form fade-in';
+      contactForm.innerHTML = `
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      `;
+
+      // Add contact form to contact section
+      const contactSection = document.querySelector('#contact .container');
+      contactSection.insertBefore(contactForm, contactSection.querySelector('.footer-content'));
+
+      // Add form styles
+      const formStyles = `
+        <style>
+          .contact-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            display: grid;
+            gap: 1.5rem;
+          }
+          
+          .form-group {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .form-group input,
+          .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--rounded);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+          }
+          
+          .form-group input:focus,
+          .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+          }
+          
+          .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+          }
+          
+          .contact-form button {
+            justify-self: center;
+            padding: 1rem 2rem;
+          }
+        </style>
+      `;
+      document.head.insertAdjacentHTML('beforeend', formStyles);
+
+      // Handle form submission
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const submitButton = contactForm.querySelector('button');
+        
+        try {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...';
+          
+          // Simulate API call (replace with actual endpoint, e.g., fetch('/api/contact', { method: 'POST', body: formData }))
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          alert('Thank you for your message! We will get back to you soon.');
+          contactForm.reset();
+        } catch (error) {
+          alert('Sorry, something went wrong. Please try again later.');
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        }
+      });
+
+      // Lazy load images
+      const images = document.querySelectorAll('img');
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      images.forEach(img => {
+        if (img.src) {
+          img.dataset.src = img.src;
+          img.src = '';
+          imageObserver.observe(img);
+        }
+      });
+
+      // Back to top button
+      const backToTop = document.createElement('button');
+      backToTop.className = 'back-to-top';
+      backToTop.innerHTML = '<i class="fas fa-chevron-up"></i>';
+      document.body.appendChild(backToTop);
+
+      const backToTopStyles = `
+        <style>
+          .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--rounded);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+          }
+          
+          .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+          }
+          
+          .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+          }
+        </style>
+      `;
+      document.head.insertAdjacentHTML('beforeend', backToTopStyles);
+
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+    </script>
+  </body>
+</html>
